@@ -11,6 +11,45 @@
 
   <link href="css/contact.css" rel="stylesheet">
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("user_FzXjmGE8mtM51b9lbgOAc");
+    })();
+  </script>
+  <script type="text/javascript">
+    function uuidv4() {
+      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      );
+    };
+    window.onload = function() {
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var uuid = uuidv4();
+        var inp = document.createElement('input');
+        inp.value = uuid;
+        inp.name = "uuid";
+        inp.type = "text";
+        inp.hidden = true;
+        inp.id = "deletepls";
+        this.appendChild(inp);
+        // these IDs from the previous steps
+        emailjs.sendForm('service_9kzor7w', 'template_4ndeuup', this)
+          .then(function() {
+            inp.parentNode.removeChild(inp);
+            document.getElementById('contact-form').reset();
+            alert('Email was sent successfully! I\'ll get back to you soon!');
+            console.log('SUCCESS!');
+          }, function(error) {
+            inp.parentNode.removeChild(inp);
+            document.getElementById('contact-form').reset();
+            alert('Something went wrong! Please email jchirinos3201@gmail.com for more details!');
+            console.log('FAILED...', error);
+          });
+      });
+    }
+  </script>
   <title>Joan Chirinos | Contact Me</title>
 </head>
 
@@ -48,7 +87,33 @@
 
 
   <div class="container">
-
+    <div class="row">
+      <div class="col-sm">
+        Contact me here!
+      </div>
+      <div class="col-sm">
+        <h3 class="border-bottom">Send me an email</h3>
+        <form id="contact-form">
+          <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="name" placeholder="Name" name="name" autocomplete="off">
+            <label for="name">Name</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input type="email" class="form-control " id="email" placeholder="name@example.com" name="email" autocomplete="off">
+            <label for="email">Email address</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input type="text" class="form-control" id="subject" placeholder="Subject" name="subject" autocomplete="off">
+            <label for="subject">Subject</label>
+          </div>
+          <div class="form-floating mb-2">
+            <textarea class="form-control" id="body" placeholder="Body" name="body" style="height: 100px;"></textarea>
+            <label for="body">Message</label>
+          </div>
+          <input type="submit" class="btn btn-dark">
+        </form>
+      </div>
+    </div>
   </div>
 
 
