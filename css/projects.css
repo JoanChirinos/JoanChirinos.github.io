@@ -1,0 +1,23 @@
+.to-red {
+  background-color: #FFD9D9;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.to-grey {
+  background-color: #FDFDFD;
+  border-bottom: 1px solid #EEE;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.red {
+  background-color: #FFD9D9;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
