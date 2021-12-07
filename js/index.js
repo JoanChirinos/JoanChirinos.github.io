@@ -1,18 +1,17 @@
 let nav = document.getElementById('navbar');
 
-document.onscroll = function() {
+document.onscroll = function () {
   var scrollTop = document.documentElement.scrollTop;
-//  console.log(scrollTop);
-  
-  if (scrollTop == 0) {
+  //  console.log(scrollTop);
+
+  if (scrollTop <= 0) {
     if (nav.classList.contains('to-grey')) {
       nav.classList.remove('to-grey');
     }
     if (!nav.classList.contains('to-blue')) {
       nav.classList.add('to-blue');
     }
-  }
-  else {
+  } else {
     if (nav.classList.contains('to-blue')) {
       nav.classList.remove('to-blue');
     }
