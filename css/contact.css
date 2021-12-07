@@ -1,0 +1,23 @@
+.to-yellow {
+  background-color: #FFFFE0;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.to-grey {
+  background-color: #FDFDFD;
+  border-bottom: 1px solid #EEE;
+  -webkit-transition: background-color 500ms linear;
+  -ms-transition: background-color 500ms linear;
+  transition: background-color 500ms linear;
+}
+
+.yellow {
+  background-color: #FFFFE0;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
